@@ -32,12 +32,12 @@ papers = {
 # TODO здесь ваш код
 c = [1,2,3,4,5,6,7]
 for c in papers:
-    if papers[c][0] <= envelop_x and papers[c][1] <= envelop_y:
+    if (papers[c][0] <= envelop_x and papers[c][1] <= envelop_y) or (papers[c][1] <= envelop_x and papers[c][0] <= envelop_y):
         print("Да")
     else:
         print("Нет")
 print("Это если просто раскоментировать по строчкам вручную")
-if paper_x <= envelop_x and paper_y <= envelop_y:
+if (paper_x <= envelop_x and paper_y <= envelop_y) or (paper_y <= envelop_x and paper_x <= envelop_y):
     print("Да")
 else:
     print("Нет")
