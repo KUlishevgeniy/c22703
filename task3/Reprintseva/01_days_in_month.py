@@ -14,7 +14,7 @@ print('Вы ввели', month)
 # TODO здесь ваш код
 a=[1,3,5,7,8,10,12]
 if month<1 or month>12:
-    print('Номер корректен')
+    print('Номер некорректен')
 else:
     if month in a:
         print(31)
