@@ -11,41 +11,20 @@
 
 envelop_x, envelop_y = 10, 7
 paper_x, paper_y = 8, 9
-if envelop_x >= paper_x and envelop_y >= paper_y or envelop_x >= paper_y and envelop_y >= paper_x:
-    print('ДА')
-else:
-    print('НЕТ')
+# проверить для
 paper_x, paper_y = 9, 8
-if envelop_x >= paper_x and envelop_y >= paper_y or envelop_x >= paper_y and envelop_y >= paper_x:
-    print('ДА')
-else:
-    print('НЕТ')
 paper_x, paper_y = 6, 8
-if envelop_x >= paper_x and envelop_y >= paper_y or envelop_x >= paper_y and envelop_y >= paper_x:
-    print('ДА')
-else:
-    print('НЕТ')
 paper_x, paper_y = 8, 6
-if envelop_x >= paper_x and envelop_y >= paper_y or envelop_x >= paper_y and envelop_y >= paper_x:
-    print('ДА')
-else:
-    print('НЕТ')
 paper_x, paper_y = 3, 4
-if envelop_x >= paper_x and envelop_y >= paper_y or envelop_x >= paper_y and envelop_y >= paper_x:
-    print('ДА')
-else:
-    print('НЕТ')
 paper_x, paper_y = 11, 9
-if envelop_x >= paper_x and envelop_y >= paper_y or envelop_x >= paper_y and envelop_y >= paper_x:
-    print('ДА')
-else:
-    print('НЕТ')
 paper_x, paper_y = 9, 11
-if envelop_x >= paper_x and envelop_y >= paper_y or envelop_x >= paper_y and envelop_y >= paper_x:
-    print('ДА')
+# (просто раскоментировать нужную строку и проверить свой код)
+
+# TODO здесь ваш код
+if (envelop_x >= paper_x and envelop_y >= paper_y) or (envelop_x >= paper_y and envelop_y >= paper_x):
+    print('Да')
 else:
-    print('НЕТ')
-# (просто раскоментировать нужную строку и проверить свой код
+    print('Нет')
 # Усложненное задание, решать по желанию.
 # Заданы размеры hole_x, hole_y прямоугольного отверстия и размеры brick_х, brick_у, brick_z кирпича (все размеры
 # могут быть в диапазоне от 1 до 1000)
@@ -73,16 +52,18 @@ brick_x, brick_y, brick_z = 3, 6, 11
 brick_x, brick_y, brick_z = 3, 11, 6
 # (просто раскоментировать нужную строку и проверить свой код)
 
-lst = [brick_x, brick_y, brick_z]
-if lst[0] >= lst[1] and lst[0] >= lst[2]:
-    maxi = lst[0]
-elif lst[1] >= lst[0] and lst[1] >= lst[2]:
-    maxi = lst[1]
-elif lst[2] >= lst[0] and lst[2] >= lst[1]:
-    maxi = lst[2]
-del lst[lst.index(maxi)]
-if hole_x >= lst[0] and hole_y >= lst[1] or hole_x >= lst[1] and hole_y >= lst[0]:
-    print('ДА')
+# TODO здесь ваш код
+k=[brick_x, brick_y, brick_z]
+d=[hole_x, hole_y]
+if k[1]>=k[0] and k[1]>=k[2]:
+    mk=k[1]
+elif k[0]>=k[1] and k[0]>=k[2]:
+    mk=k[0]
+else: mk=k[2]
+k.remove(mk)
+if k[1]<=d[1] and k[0]<=d[0] or k[0]<=d[1] and k[1]<=d[0]:
+    print('Да')
 else:
-    print('НЕТ')
+    print('Нет')
+
 
