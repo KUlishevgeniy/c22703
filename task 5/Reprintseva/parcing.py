@@ -1,5 +1,3 @@
-
-
 from bs4 import BeautifulSoup
 from selenium.webdriver import Chrome
 from selenium import webdriver
@@ -10,14 +8,11 @@ import time
 # запускаем браузер
 s = Service('C:\data\hrome\chromedriver.exe')
 browser = webdriver.Chrome(service=s)
-browser.get('https://www.kinopoisk.ru/lists/movies/top250/')
+browser.get('https://www.avito.ru/all/avtomobili/chevrolet-ASgBAgICAUTgtg32lyg?cd=1')
 time.sleep (10)#задержка для ввода капчи
 html_text = browser.page_source
 soup = BeautifulSoup(html_text, 'lxml')
-films=soup.find_all('div', class_='base-movie-main-info_mainInfo__ZL_u3')
-print (films[0].text)
-
-
-# Это пример парсинга. Вам необходимо спарсить 1 страницу каталога любого сайта на выбор.
-#сайты не должны повторяться
-# Спарсить необходимо только Заголовки и описание.
+mashinas=soup.find_all('div', class_='iva-item-titleStep-pdebR')
+prices=soup.find_all('span', class_='price-root-RA1pj price-listRedesign-GXB2V')
+for mashina, price in zip(mashinas, prices):
+    print(f"Название машины: {mashina.text} | Цена: {price.text} рублей")
