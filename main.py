@@ -3,7 +3,6 @@ from selenium.webdriver import Chrome
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 import time
-
 s = Service('C:\data\hrome\chromedriver.exe')
 browser = webdriver.Chrome(service=s)
 browser.get('https://aliexpress.ru/')
