@@ -14,5 +14,7 @@ html_text = browser.page_source
 soup = BeautifulSoup(html_text, 'lxml')
 mashinas=soup.find_all('div', class_='iva-item-titleStep-pdebR')
 prices=soup.find_all('span', class_='price-root-RA1pj price-listRedesign-GXB2V')
-for mashina, price in zip(mashinas, prices):
-    print(f"Название машины: {mashina.text} | Цена: {price.text} рублей")
+#https://40.img.avito.st/image/1/1.p8Bvdba1Cyl51bEpLRPv1VjXCSnR3qkoYdQJKw.XzMqhOcm4UWnTGMWcX4rJjriSxk1fixY4DLLT2MPkzk
+opisanies=soup.find_all('div', class_='iva-item-text-Ge6dR iva-item-description-FDgK4 text-text-LurtD text-size-s-BxGpL')
+for mashina, price, opisanie in zip(mashinas, prices,opisanies):
+    print(f"Название машины: {mashina.text} | Цена: {price.text} рублей | Описание: {opisanie.text}" )
