@@ -18,4 +18,4 @@ goods_n = soup.find_all('span', class_='goods-name')
 real_prices = soup.find_all('ins', class_='price__lower-price')
 
 for product, real_price, brand in zip(goods_n, real_prices, brand_n):
-    print(f"Товар: {product.text[3:]} | Цена: {real_price.text.strip()} рублей | Продавец: {brand.text}")
+    print(f"Название чехольчика: {product.text[3:]} | Цена: {real_price.text.strip()} рублей | Продавец: {brand.text}")
