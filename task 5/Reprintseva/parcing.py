@@ -14,5 +14,19 @@ mashinas=soup.find_all('div', class_='iva-item-titleStep-pdebR')
 prices=soup.find_all('span', class_='price-root-RA1pj price-listRedesign-GXB2V')
 #https://40.img.avito.st/image/1/1.p8Bvdba1Cyl51bEpLRPv1VjXCSnR3qkoYdQJKw.XzMqhOcm4UWnTGMWcX4rJjriSxk1fixY4DLLT2MPkzk
 opisanies=soup.find_all('div', class_='iva-item-text-Ge6dR iva-item-description-FDgK4 text-text-LurtD text-size-s-BxGpL')
-for mashina, price, opisanie in zip(mashinas, prices,opisanies):
-    print(f"Название машины: {mashina.text} | Цена: {price.text} рублей | Описание: {opisanie.text}" )
+#for mashina, price, opisanie in zip(mashinas, prices,opisanies):
+    #print(f"Название машины: {mashina.text} | Цена: {price.text} рублей | Описание: {opisanie.text}" )
+import psycopg2
+connection = psycopg2.connect(dbname='dbdata',
+                                  user='postgres', password='Q1w2e3r4',
+                                  host='localhost')
+cursor = connection.cursor()
+for mashina, price, opisanie in zip(mashinas, prices, opisanies):
+            query = """ INSERT INTO public.avito(
+            "Автомобиль", "Цена", "Описание")
+            VALUES (%s,%s,%s);"""
+            record_to_insert = (mashina.text, price.text, opisanie.text)
+            cursor.execute(query, record_to_insert)
+connection.commit()
+cursor.close()
+connection.close()
