@@ -19,10 +19,10 @@ connection = psycopg2.connect(dbname='dbdata',
                                   user='postgres', password='Q1w2e3r4',
                                   host='localhost')
 cursor = connection.cursor()
-for phone, price, in zip(phones, prices):
+for phone, price in zip(phones, prices):
             query = """ INSERT INTO public.svyaznoy(
             "phone", "price")
-            VALUES (%s,%s,%s);"""
+            VALUES (%s,%s);"""
             record_to_insert = (phone.text, price.text)
             cursor.execute(query, record_to_insert)
 connection.commit()
