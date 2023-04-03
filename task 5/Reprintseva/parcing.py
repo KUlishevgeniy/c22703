@@ -21,8 +21,14 @@ connection = psycopg2.connect(dbname='dbdata',
                                   user='postgres', password='Q1w2e3r4',
                                   host='localhost')
 cursor = connection.cursor()
+creat_table="""CREATE TABLE avito666
+    (id serial primary key, "Автомобиль" varchar(100),
+    "Цена" varchar(100),
+    "Описание" varchar(50000))"""
+cursor.execute(creat_table)
+connection.commit()
 for mashina, price, opisanie in zip(mashinas, prices, opisanies):
-            query = """ INSERT INTO public.avito(
+            query = """ INSERT INTO public.avito666(
             "Автомобиль", "Цена", "Описание")
             VALUES (%s,%s,%s);"""
             record_to_insert = (mashina.text, price.text, opisanie.text)
