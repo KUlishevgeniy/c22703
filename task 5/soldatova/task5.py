@@ -13,6 +13,8 @@ html_text = browser.page_source
 soup = BeautifulSoup(html_text, 'lxml')
 
 women_products=soup.find_all('div', class_='x-product-card-description__brand-name _brandName_k0rqx_6')
+descriptions= soup.find_all('div', class_='x-product-card-description__product-name _productName_k0rqx_7')
 prices=soup.find_all('span', class_='x-product-card-description__price-single x-product-card-description__price-WEB8507_price_no_bold _price_k0rqx_8')
-for women_product, price in zip(women_products, prices):
-    print(f"Название модели аксессуара: {women_product.text} | Цена: {price.text} рублей")
+
+for women_product, description, price in zip(women_products, descriptions,  prices):
+    print(f"Название модели аксессуара: {women_product.text}| Описание: {description.text} | Цена: {price.text} рублей")
