@@ -27,7 +27,7 @@ for i in range(len(str_cartinki)):
     #wget.download(str_cartinki[i], 'TOP'+str((i+1))+'.jpeg')
 
 
-connection = psycopg2.connect(dbname = 'testDB',
+connection = psycopg2.connect(dbname ='dbdata',
                            user='postgres', password='Q1w2e3r4',
                            host='localhost')
 cursor=connection.cursor()
