@@ -6,6 +6,7 @@ import requests
 import psycopg2
 
 
+
 dct = {}
 s = Service('C:\chromedriver.exe')
 browser = webdriver.Chrome(service=s)
@@ -42,6 +43,7 @@ for i in dct:
         req = urllib.request.Request(dct[i]['img_url'], headers={'User-Agent': 'Mozilla/5.0'})
         path = f'img/img{count}.jpeg'
         dct[i]['img_path'] = path
+        path = 'mysite/static/' + path
         with open(path, "wb") as f:
             with urllib.request.urlopen(req) as r:
                 f.write(r.read())
@@ -60,3 +62,4 @@ for i in dct:
     cursor.execute(text)
 conn.commit()
 conn.close()
+
